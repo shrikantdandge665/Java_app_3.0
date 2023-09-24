@@ -113,7 +113,6 @@ pipeline{
          when { expression {  params.action == 'create' } }
             steps{
                 script{
-                    #def serverip=100.25.200.113:8082
                     JfrogPush()
             }     
         }
