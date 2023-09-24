@@ -113,6 +113,7 @@ pipeline{
          when { expression {  params.action == 'create' } }
             steps{
                 script{
+                    sh 'pwd'
                     JfrogPush()
                 }     
             }
