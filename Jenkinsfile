@@ -114,8 +114,8 @@ pipeline{
             steps{
                 script{
                     JfrogPush()
-            }     
+                }     
+            }
         }
     }
-}
 }
