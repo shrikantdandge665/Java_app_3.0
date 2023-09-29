@@ -11,7 +11,8 @@ pipeline{
         string(name: 'ImageTag', description: "tag of the docker build", defaultValue: 'v1')
         string(name: 'DockerHubUser', description: "name of the Application", defaultValue: 'shrikantdandge7')
         string(name: 'artifactPath', description: "Jfrog Artifact Path", defaultValue: '/var/lib/jenkins/workspace/Demo_3.0/target/kubernetes-configmap-reload-0.0.1-SNAPSHOT.jar')
-        string(name: 'targetPath', description: "Target path of Jfrog repo", defaultValue: 'http://54.90.54.5:8082/artifactory/java-web-app/')
+        string(name: 'version', description: "Artifact version", defaultValue: '1')
+        string(name: 'targetPath', description: "Target path of Jfrog repo", defaultValue: 'http://54.90.54.5:8082/artifactory/java-web-app/Assignment-2-${version}.jar')
     }
 
     stages{
@@ -116,7 +117,7 @@ pipeline{
             steps{
                 script{
                     sh 'pwd'
-                    JfrogPush("${params.artifactPath}", "${params.targetPath}")
+                    JfrogPush("${params.version}", "${params.artifactPath}", "${params.targetPath}")
                 }     
             }
         }
