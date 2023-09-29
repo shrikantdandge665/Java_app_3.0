@@ -116,7 +116,7 @@ pipeline{
             steps{
                 script{
                     sh 'pwd'
-                    JfrogPush("${params.artifactPath}", "${parms.version}")
+                    JfrogPush("${params.artifactPath}", "${params.version}")
                 }     
             }
         }
